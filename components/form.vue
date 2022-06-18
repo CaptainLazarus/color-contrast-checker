@@ -43,6 +43,7 @@
                     mode="hexa"
                     flat
                     hide-mode-switch
+                    id="background_color_picker"
                   />
                 </v-row>
               </v-card-text>
@@ -59,6 +60,7 @@
                     mode="hexa"
                     flat
                     hide-mode-switch
+                    id="text_color_picker"
                   />
                 </v-row>
               </v-card-text>
@@ -646,8 +648,25 @@ export default {
   },
   mounted () {
 
-    // var e = document.querySelector('.transparent.v-card.v-sheet:nth-child(1) > .v-card__text > .justify-center.row > .v-color-picker.v-color-picker--flat.v-sheet > .v-color-picker__controls > .v-color-picker__edit > .v-color-picker__input > input[maxlength="9"][value="#FF0000FF"]');
+    // var e = document.querySelector('v-sheet:nth-child(1) > .v-card__text > .justify-center.row > .v-color-picker.v-color-picker--flat.v-sheet > .v-color-picker__controls > .v-color-picker__edit > .v-color-picker__input > input[maxlength="9"][value="#FF0000FF"]');
     // e.setAttribute("background color slider" , "aria-label")
+    var e = document.querySelector("#background_color_picker .v-color-picker__hue .v-slider__thumb-container")
+    e.setAttribute("title" , "background-color-slider")
+
+    var e = document.querySelector("#background_color_picker .v-color-picker__alpha .v-slider__thumb-container")
+    e.setAttribute("title" , "background-alpha-slider")
+
+    var e = document.querySelector("#text_color_picker .v-color-picker__hue .v-slider__thumb-container")
+    e.setAttribute("title" , "text-color-slider")
+
+    var e = document.querySelector("#text_color_picker .v-color-picker__alpha .v-slider__thumb-container")
+    e.setAttribute("title" , "text-alpha-slider")
+
+    var e = document.querySelector("#background_color_picker .v-color-picker__input input")
+    e.setAttribute("title" , "background-hex-input-value")
+
+    var e = document.querySelector("#text_color_picker .v-color-picker__input input")
+    e.setAttribute("title" , "text-hex-input-value")
 
     this.checkColorContrast(this.textColor, this.backgroundColor)
     this.checkProtanomalyColorContrast(this.textColor, this.backgroundColor)
