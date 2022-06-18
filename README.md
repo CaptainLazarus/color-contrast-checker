@@ -1,4 +1,4 @@
-# ccc.morsecodemedia.com
+# ccc.morsecodemedia.com => Original author :)
 An accessibility checker tool for validating the color contrast based on WCAG 2.0 and WCAG 2.1 standards.
 
 ## Other Tools
@@ -7,3 +7,6 @@ An accessibility checker tool for validating the color contrast based on WCAG 2.
 [Meta Tags](https://]meta-tags.morsecodemedia.com/) - A page to check character count and preview meta tags in various scenarios.
 
 [UTM Generator](https://utm-generator.morsecodemedia.com/) - Form to generate a functioning URL with appropriate UTM parameters.
+
+## Important
+Use node 14.15.0 for correct installation. Does not work with node 18. Use nvm to switch.
