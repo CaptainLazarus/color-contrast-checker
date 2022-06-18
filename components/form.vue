@@ -73,7 +73,8 @@
             <v-card
               color="transparent"
             >
-              <v-card-title>Regular Vision (Trichromatic)</v-card-title>
+              <v-card-title><h2>Regular Vision (Trichromatic)</h2>
+              </v-card-title>
               <v-card-subtitle>Can distinguish all three primary color, little to no blurriness</v-card-subtitle>
               <p class="contrast-ratio">
                 <span
@@ -88,7 +89,7 @@
               <v-simple-table>
                 <thead>
                   <tr>
-                    <th>&nbsp;</th>
+                    <th>Level</th>
                     <th>Normal Text</th>
                     <th>Large Text</th>
                   </tr>
@@ -124,7 +125,7 @@
             <v-card
               color="transparent"
             >
-              <v-card-title>Protanomaly</v-card-title>
+              <v-card-title><h2>Protanomaly</h2></v-card-title>
               <v-card-subtitle>Trouble distinguishing reds</v-card-subtitle>
               <p class="contrast-ratio">
                 <span
@@ -139,7 +140,7 @@
               <v-simple-table>
                 <thead>
                   <tr>
-                    <th>&nbsp;</th>
+                    <th>Level</th>
                     <th>Normal Text</th>
                     <th>Large Text</th>
                   </tr>
@@ -175,7 +176,7 @@
             <v-card
               color="transparent"
             >
-              <v-card-title>Protanopia</v-card-title>
+              <v-card-title><h2>Protanopia</h2></v-card-title>
               <v-card-subtitle>Red blind - Can’t see reds at all</v-card-subtitle>
               <p class="contrast-ratio">
                 <span
@@ -190,7 +191,7 @@
               <v-simple-table>
                 <thead>
                   <tr>
-                    <th>&nbsp;</th>
+                    <th>Level</th>
                     <th>Normal Text</th>
                     <th>Large Text</th>
                   </tr>
@@ -226,7 +227,7 @@
             <v-card
               color="transparent"
             >
-              <v-card-title>Deuteranomaly</v-card-title>
+              <v-card-title><h2>Deuteranomaly</h2></v-card-title>
               <v-card-subtitle>Trouble distinguishing greens</v-card-subtitle>
               <p class="contrast-ratio">
                 <span
@@ -241,7 +242,7 @@
               <v-simple-table>
                 <thead>
                   <tr>
-                    <th>&nbsp;</th>
+                    <th>Level</th>
                     <th>Normal Text</th>
                     <th>Large Text</th>
                   </tr>
@@ -277,7 +278,7 @@
             <v-card
               color="transparent"
             >
-              <v-card-title>Deuteranopia</v-card-title>
+              <v-card-title><h2>Deuteranopia</h2></v-card-title>
               <v-card-subtitle>Green blind - Can’t see greens at all</v-card-subtitle>
               <p class="contrast-ratio">
                 <span
@@ -292,7 +293,7 @@
               <v-simple-table>
                 <thead>
                   <tr>
-                    <th>&nbsp;</th>
+                    <th>Level</th>
                     <th>Normal Text</th>
                     <th>Large Text</th>
                   </tr>
@@ -328,7 +329,7 @@
             <v-card
               color="transparent"
             >
-              <v-card-title>Tritanomaly</v-card-title>
+              <v-card-title><h2>Tritanomaly</h2></v-card-title>
               <v-card-subtitle>Trouble distinguishing blues</v-card-subtitle>
               <p class="contrast-ratio">
                 <span
@@ -343,7 +344,7 @@
               <v-simple-table>
                 <thead>
                   <tr>
-                    <th>&nbsp;</th>
+                    <th>Level</th>
                     <th>Normal Text</th>
                     <th>Large Text</th>
                   </tr>
@@ -379,7 +380,7 @@
             <v-card
               color="transparent"
             >
-              <v-card-title>Tritanopia</v-card-title>
+              <v-card-title><h2>Tritanopia</h2></v-card-title>
               <v-card-subtitle>Blue blind - Can’t see blues at all</v-card-subtitle>
               <p class="contrast-ratio">
                 <span
@@ -394,7 +395,7 @@
               <v-simple-table>
                 <thead>
                   <tr>
-                    <th>&nbsp;</th>
+                    <th>Level</th>
                     <th>Normal Text</th>
                     <th>Large Text</th>
                   </tr>
@@ -430,7 +431,7 @@
             <v-card
               color="transparent"
             >
-              <v-card-title>Achromatomaly</v-card-title>
+              <v-card-title><h2>Achromatomaly</h2></v-card-title>
               <v-card-subtitle>Partial color blindness, sees the absence of most colors</v-card-subtitle>
               <p class="contrast-ratio">
                 <span
@@ -445,7 +446,7 @@
               <v-simple-table>
                 <thead>
                   <tr>
-                    <th>&nbsp;</th>
+                    <th>Level</th>
                     <th>Normal Text</th>
                     <th>Large Text</th>
                   </tr>
@@ -481,7 +482,7 @@
             <v-card
               color="transparent"
             >
-              <v-card-title>Achromatopsia</v-card-title>
+              <v-card-title><h2>Achromatopsia</h2></v-card-title>
               <v-card-subtitle>Complete color blindness, can only see shades</v-card-subtitle>
               <p class="contrast-ratio">
                 <span
@@ -496,7 +497,7 @@
               <v-simple-table>
                 <thead>
                   <tr>
-                    <th>&nbsp;</th>
+                    <th>Level</th>
                     <th>Normal Text</th>
                     <th>Large Text</th>
                   </tr>
@@ -644,6 +645,10 @@ export default {
     }
   },
   mounted () {
+
+    // var e = document.querySelector('.transparent.v-card.v-sheet:nth-child(1) > .v-card__text > .justify-center.row > .v-color-picker.v-color-picker--flat.v-sheet > .v-color-picker__controls > .v-color-picker__edit > .v-color-picker__input > input[maxlength="9"][value="#FF0000FF"]');
+    // e.setAttribute("background color slider" , "aria-label")
+
     this.checkColorContrast(this.textColor, this.backgroundColor)
     this.checkProtanomalyColorContrast(this.textColor, this.backgroundColor)
     this.checkProtanopiaColorContrast(this.textColor, this.backgroundColor)
@@ -861,6 +866,7 @@ h1 {
 .v-card {
   margin-bottom: 15px;
 }
+
 .preview {
   width: 100%;
   max-width: 1000px;
