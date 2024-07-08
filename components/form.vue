@@ -13,7 +13,7 @@
             class="preview"
           >
             <p class="large-text">
-              Large Text - 24px
+              Large Text - <span class="lg-bold">19px bold</span> or 24px regular
             </p>
             <p class="large-text">
               Contrast ratio is a measure of the difference in perceived brightness between two colors. The higher the ratio, the better the contrast.
@@ -23,7 +23,7 @@
               Normal Text - 16px
             </p>
             <p class="normal-text">
-              According to Web Content Accessibility Guidelines (WCAG) 2.0, text and images of text should have a minimum contrast ratio of 4.5:1 (Level AA), while large text should have minimum contrast ratio of 3:1. For enhanced contrast (Level AAA), normal text and large text should have minimum contrast ratio of 7:1 and 4.5:1 respectively.
+              According to Web Content Accessibility Guidelines (WCAG), text and images of text should have a minimum contrast ratio of 4.5:1 (Level AA), while large text should have minimum contrast ratio of 3:1. For enhanced contrast (Level AAA), normal text and large text should have minimum contrast ratio of 7:1 and 4.5:1 respectively.
             </p>
           </v-card>
         </v-row>
@@ -64,6 +64,16 @@
                   />
                 </v-row>
               </v-card-text>
+            </v-card>
+
+            <v-card>
+              <v-card-title>Share Contrast Link</v-card-title>
+              <v-card-subtitle>One-click create and save a sharable URL to allow you to come back to this page with the current colors prepopulated.</v-card-subtitle>
+              <v-btn
+                @click="createURL"
+              >
+                Create Sharable URL
+              </v-btn>
             </v-card>
           </v-col>
 
@@ -538,9 +548,13 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import blinder from 'color-blind'
 import { colord, extend } from 'colord'
 import a11yPlugin from 'colord/plugins/a11y'
+import VueClipboard from 'vue-clipboard2'
+
+Vue.use(VueClipboard)
 extend([a11yPlugin])
 
 export default {
@@ -759,6 +773,20 @@ export default {
     }
   },
   methods: {
+    createURL () {
+      const txtHex = this.textColor.substring(1)
+      const bgHex = this.backgroundColor.substring(1)
+      const txtLen = txtHex.length
+      const bgLen = bgHex.length
+      const txtParam = this.processHex(txtHex, txtLen)
+      const bgParam = this.processHex(bgHex, bgLen)
+      const generatedURL = 'https://ccc.morsecodemedia.com/?textColor=' + txtParam + '&backgroundColor=' + bgParam
+      this.$copyText(generatedURL).then(function (e) {
+        alert('The generated URL has been copied to your clipboard.')
+      }, function (e) {
+        alert('Something went wrong while trying to copy the generated URL.')
+      })
+    },
     checkColorContrast (txt, bg) {
       this.contrastRatio = colord(txt.slice(0, -2)).contrast(bg.slice(0, -2))
       this.aaNormal = this.contrastRatio >= 4.5
@@ -895,6 +923,13 @@ h1 {
   font-size: 24px;
   line-height: 1.2em;
 }
+
+.large-text .lg-bold {
+  font-size: 19px;
+  line-height: 1.2em;
+  font-weight: bold;
+}
+
 .normal-text {
   font-size: 16px;
   line-height: 1.2em;
