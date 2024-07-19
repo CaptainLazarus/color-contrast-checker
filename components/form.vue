@@ -778,7 +778,9 @@ export default {
       const bgHex = this.backgroundColor.substring(1)
       const txtLen = txtHex.length
       const bgLen = bgHex.length
-      const generatedURL = 'https://digitala11y.com'
+      const txtParam = this.processHex(txtHex, txtLen)
+      const bgParam = this.processHex(bgHex, bgLen)
+      const generatedURL = 'https://color.digitala11y.com/?textColor=' + txtParam + '&backgroundColor=' + bgParam
       this.$copyText(generatedURL).then(function (e) {
         alert('The generated URL has been copied to your clipboard.')
       }, function (e) {
